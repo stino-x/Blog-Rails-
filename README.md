@@ -72,12 +72,6 @@ Welcome to **blog-app**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
- <!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="presentation"></a>
-
-- Not available yet.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
