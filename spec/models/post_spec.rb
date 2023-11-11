@@ -56,26 +56,25 @@ RSpec.describe Post, type: :model do
   end
 
   describe '#update_user_posts_counter' do
-  it 'calls update_user_posts_counter after create' do
-    user = User.create(name: 'John Doe', bio: 'Some bio content')
-    user.posts.create(title: 'Post Title', text: 'Post content')
-    user.reload
-    expect(user.posts_counter).to eq(1)
-  end
+    it 'calls update_user_posts_counter after create' do
+      user = User.create(name: 'John Doe', bio: 'Some bio content')
+      user.posts.create(title: 'Post Title', text: 'Post content')
+      user.reload
+      expect(user.posts_counter).to eq(1)
+    end
   end
 
   describe '#recent_comments' do
-  it 'returns recent comments for the post' do
-    user = User.create(name: 'John Doe', bio: 'Some bio content')
-    post = user.posts.create(title: 'Post Title', text: 'Post content')
-  
-    post.comments.create(user:, text: 'Comment 1') # Pass user: user instead of user:
-  
-    comment2 = post.comments.create(user:, text: 'Comment 2') # Pass user: user instead of user:
-    comment3 = post.comments.create(user:, text: 'Comment 3') # Pass user: user instead of user:
-  
-    expect(post.recent_comments(2)).to eq([comment3, comment2])
-  end
-  
+    it 'returns recent comments for the post' do
+      user = User.create(name: 'John Doe', bio: 'Some bio content')
+      post = user.posts.create(title: 'Post Title', text: 'Post content')
+
+      post.comments.create(user:, text: 'Comment 1') # Pass user: user instead of user:
+
+      comment2 = post.comments.create(user:, text: 'Comment 2') # Pass user: user instead of user:
+      comment3 = post.comments.create(user:, text: 'Comment 3') # Pass user: user instead of user:
+
+      expect(post.recent_comments(2)).to eq([comment3, comment2])
+    end
   end
 end
