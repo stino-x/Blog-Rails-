@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration[7.1]
       t.integer :likes_counter, default: 0
 
       # Add the author_id column to reference the users table
-      t.references :author, null: false, foreign_key: { to_table: :users }
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
