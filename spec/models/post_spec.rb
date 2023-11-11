@@ -2,11 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.create(name: 'John Doe', bio: 'Some bio content') }
+  let(:author) { User.create(name: 'John Doe', bio: 'Some bio content') }
 
   describe 'associations' do
     it 'belongs to a user' do
-      association = described_class.reflect_on_association(:user)
+      association = described_class.reflect_on_association(:author)
       expect(association.macro).to eq :belongs_to
     end
 
@@ -49,36 +49,33 @@ RSpec.describe Post, type: :model do
   describe 'callbacks' do
     it 'calls update_user_posts_counter after create' do
       # Make sure to provide the user association when creating a post
-      user.posts.create(title: 'Post Title', text: 'Post content')
-      user.reload
-      expect(user.posts_counter).to eq(1)
+      author.posts.create(title: 'Post Title', text: 'Post content')
+      author.reload
+      expect(author.posts_counter).to eq(1)
     end
   end
 
   describe '#update_user_posts_counter' do
-    it 'updates user posts_counter' do
-      user = User.new(name: 'John Doe', bio: 'Some bio')
-      user.save!
-
-      post = Post.new(title: 'Post Title', text: 'Post content', user:)
-      post.save!
-
-      post.update_user_posts_counter
-
-      user.reload # Ensure the user object is refreshed from the database
-      expect(user.posts_counter).to eq(1)
-    end
+  it 'calls update_user_posts_counter after create' do
+    user = User.create(name: 'John Doe', bio: 'Some bio content')
+    user.posts.create(title: 'Post Title', text: 'Post content')
+    user.reload
+    expect(user.posts_counter).to eq(1)
+  end
   end
 
   describe '#recent_comments' do
-    it 'returns recent comments for the post' do
-      post = user.posts.create(title: 'Post Title', text: 'Post content')
-
-      post.comments.create(user:, text: 'Comment 1')
-      comment2 = post.comments.create(user:, text: 'Comment 2')
-      comment3 = post.comments.create(user:, text: 'Comment 3')
-
-      expect(post.recent_comments(2)).to eq([comment3, comment2])
-    end
+  it 'returns recent comments for the post' do
+    user = User.create(name: 'John Doe', bio: 'Some bio content')
+    post = user.posts.create(title: 'Post Title', text: 'Post content')
+  
+    post.comments.create(user:, text: 'Comment 1') # Pass user: user instead of user:
+  
+    comment2 = post.comments.create(user:, text: 'Comment 2') # Pass user: user instead of user:
+    comment3 = post.comments.create(user:, text: 'Comment 3') # Pass user: user instead of user:
+  
+    expect(post.recent_comments(2)).to eq([comment3, comment2])
+  end
+  
   end
 end
