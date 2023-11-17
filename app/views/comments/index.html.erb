@@ -1,0 +1,8 @@
+<div>
+    <h1>comments</h1>
+    <ul>
+        <% @comments.each do |comments| %>
+        <li><%= link_to comments.name, comments %></li>
+        <% end %>
+    </ul>
+</div>
