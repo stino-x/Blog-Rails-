@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   def update; end
 
   def destroy
-    @User = User.find(params[:id])
-    @User.destroy
+    @user = User.find(params[:id])
+    @user.destroy
     redirect_to :back
   end
 
