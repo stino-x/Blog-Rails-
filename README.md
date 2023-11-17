@@ -53,7 +53,7 @@ Welcome to **blog-app**
 </details>
 
 <details>
-<summary>Database</summary>
+<summary>Databasee</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
