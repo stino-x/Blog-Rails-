@@ -3,24 +3,23 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def update
-    @post = Post.find(params[:id])
-    if Post.update(post_params)
-      redirect_to Post_path(Post), notice: 'Post updated successfully.'
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @post.update(post_params)
+  #     redirect_to user_post_path(@user, @post), notice: 'Post updated successfully.'
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+  # def edit
+  #   @post = Post.find(params[:id])
+  # end
 
   def create
     @post = Post.create(post_params)
     if @post.valid?
       session[:post_id] = @post.id
-      redirect_to '/posts'
+      redirect_to posts_path
     else
       flash[:errors] = @post.errors.full_messages
       redirect_to :back
@@ -28,7 +27,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find(params[:id])
+    # @author_name = @post.author.name
+    # @post_text = @post.text
   end
 
   def destroy
