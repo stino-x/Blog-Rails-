@@ -25,9 +25,9 @@ RSpec.describe UsersController, type: :controller do
   describe 'POST #create' do
     context 'with valid parameters' do
       it 'creates a new user' do
-        expect {
+        expect do
           post :create, params: { user: { name: 'John Doe' } }
-        }.to change(User, :count).by(1)
+        end.to change(User, :count).by(1)
       end
     end
   end
