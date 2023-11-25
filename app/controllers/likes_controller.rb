@@ -16,8 +16,6 @@ class LikesController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     @like = current_user.likes.find_by(post: @post)
-
-
     if @like.destroy
       @post.decrement!(:likes_counter)
       flash[:success] = 'Post unliked!!'
