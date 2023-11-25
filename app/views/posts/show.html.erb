@@ -17,6 +17,9 @@
           <p class="post-content">
             <%= @post.text %>
           </p>
+            <%= form_with(model: @like, url: user_post_likes_path(@user, @post), method: :post, local: true) do |f| %>
+              <%= f.submit 'Like', class: 'like-button' %>
+            <% end %>
         </div>
 
 

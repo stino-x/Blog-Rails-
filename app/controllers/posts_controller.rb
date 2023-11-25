@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.author
+    @like = current_user.likes.find_by(post: @post)
   end
 
   def destroy
