@@ -24,7 +24,7 @@
       </p>
     </div>
 
-    <% @user.posts.each do |post| %>
+    <% @user.posts.order(created_at: :desc).limit(3).each do |post| %>
       <div class="post">
         <div class="post-body">
           <h2 class="post-title"><%= post.title %></h2>

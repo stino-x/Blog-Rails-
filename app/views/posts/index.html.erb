@@ -32,7 +32,7 @@
         </div>
 
         <ul class="comment-list">
-          <% post.comments.each do |comment| %>
+          <% post.comments.order(created_at: :desc).limit(5).each do |comment| %>
             <li class="comment">
               <span class="comment-span">
                 <h5 class="commenter"><%= comment.user.name %></h5>
