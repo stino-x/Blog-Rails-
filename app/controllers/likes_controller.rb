@@ -20,7 +20,7 @@ class LikesController < ApplicationController
 
     if @like.destroy
       @post.decrement!(:likes_counter)
-      flash[:success] = 'Post unliked!'
+      flash[:success] = 'Post unliked!!'
     else
       flash[:error] = 'Unlike failed'
     end
