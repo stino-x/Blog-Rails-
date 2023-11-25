@@ -1,1 +1,59 @@
-<h1>Here is the info for a particular post</h1>
+<%= stylesheet_link_tag 'application', 'usershow', 'data-turbo-track': 'reload' %>
+
+<body>
+  <main class="flex">
+    <header></header>
+
+    <div class="profile">
+      <span class="profile-photo">
+        <img src="https://user-images.githubusercontent.com/37116322/222183427-3450696b-429a-4e9a-9e19-48bbe4b48edf.png" alt="profile" class="user-pic">
+      </span>
+      <span class="user">
+        <h2 class="name"><%= @user.name %></h2>
+        <span class="second-half">
+          <h5>#Number of posts:</h5>
+          <h6 class="numberofposts"><%= @user.posts_counter %></h6>
+        </span>
+      </span>
+    </div>
+
+    <div class="bio">
+      <h3 class="bio-title">Bio</h3>
+      <p class="bio-content">
+        <%= @user.bio %>
+      </p>
+    </div>
+
+    <% @user.posts.order(created_at: :desc).limit(3).each do |post| %>
+      <div class="post">
+        <div class="post-body">
+          <h2 class="post-title"><%= post.title %></h2>
+          <p class="post-content">
+            <%= post.text %>
+          </p>
+          <div class="commentsandlikes">
+            <h5 class="sign">Comments:</h5>
+            <span class="numberofcomments"><%= post.comments_counter %></span>
+            <h5>Likes:</h5>
+            <span class="numberoflikes"><%= post.likes_counter %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="button">
+      <div class="wrapper">
+        <button>
+          See more Posts 
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>hh</footer>
+</body>
