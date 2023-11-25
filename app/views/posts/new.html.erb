@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'application', 'form', 'data-turbo-track': 'reload' %>
+<div class="new-post">
+  <%= form_with model: @post, url: user_posts_path(@user), local: true do |f| %>
+    <h2 class="comments-header">Create New Posts</h2>
+    <div class="formgroup">
+      <%= f.text_field :title, class: "formcontrol", placeholder: "Title" %>
+    </div>
+    <div class="formgroup">
+      <%= f.text_area :text, class: "formcontrol", placeholder: "Post content" %>
+    </div>
+    <%= f.hidden_field :comments_counter, value: 0 %>
+    <%= f.hidden_field :likes_counter, value: 0 %>
+    <%= f.submit "Create Post", class: "btn btn-primary" %>
+  <% end %>
+</div>

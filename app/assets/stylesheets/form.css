@@ -1,0 +1,174 @@
+body {
+  margin: 2rem;
+  padding: 6rem;
+  background-color: bisque;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.user-cont {
+  width: 55vw;
+  height: 11rem;
+  background-color: #b08b6b;
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  border: 3px solid #403541;
+  color: #403541;
+}
+
+.user-cont:nth-child(odd) {
+  background-color: #8e43ed;
+  color: black;
+}
+
+.user-pic {
+  width: 14rem;
+  height: 10rem;
+  margin-right: 2rem;
+}
+
+.user-info {
+  display: flex;
+}
+
+.posts-counter {
+  margin: 2rem 0 0 3rem;
+  padding: 0;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 20px;
+}
+
+.post-link {
+  text-decoration: none;
+  margin-left: 90%;
+  color: #403541;
+}
+
+.user-bio {
+  flex-direction: column;
+}
+
+.post-cont-container {
+  background-color: #8e43ed;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 8px;
+  border: 3px solid #403541;
+}
+
+.post-cont {
+  width: 50vw;
+  height: 9rem;
+  background-color: gold;
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  border: 3px solid #403541;
+  color: #403541;
+}
+
+.comment-cont {
+  padding-left: 3rem;
+  margin-bottom: 3rem;
+}
+
+.post-text {
+  margin-top: -1rem;
+}
+
+.comments-count {
+  font-size: 15px;
+}
+
+.btn {
+  background-color: gold;
+  color: #403541;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-2 {
+  background-color: #8e43ed;
+  color: gold;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.like-button {
+  cursor: pointer;
+  background-color: gold;
+  color: #403541;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  text-decoration: none;
+}
+
+.btn_2 {
+  color: gold;
+}
+
+.formcontrol {
+  width: 30vw;
+  height: 3rem;
+  font-size: 25px;
+  margin-bottom: 1rem;
+  background-color: gold;
+  border-radius: 10px;
+  border: none;
+}
+
+.formtext {
+  color: gold;
+  font-size: 30px;
+  margin-left: -2rem;
+}
+
+.formcontrol-2 {
+  width: 30vw;
+  height: 5rem;
+  font-size: 25px;
+  margin-bottom: 1rem;
+  background-color: gold;
+  border-radius: 10px;
+  border: none;
+}
+
+.formbtn {
+  background-color: #8e43ed;
+  color: gold;
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+  width: 8rem;
+}
+
+.create-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-header {
+  color: gold;
+}
