@@ -1,1 +1,51 @@
-<h1>Here is the info for a particular post</h1>
+<%= stylesheet_link_tag 'application', 'postshows', 'data-turbo-track': 'reload' %>
+<body>
+  <main class="flex">
+    <header></header>
+    
+      <div class="post">
+        <div class="post-body">
+          <span>
+          <h2 class="post-title">Post #<%= @post.id %> by <%= @post.author.name %></h2>
+          <div class="commentsandlikes">
+            <h5 class="sign">Comments:</h5>
+            <span class="numberofcomments"><%= @post.comments_counter %></span>
+            <h5>Likes:</h5>
+            <span class="numberoflikes"><%= @post.likes_counter %></span>
+          </div>
+          </span>
+          <p class="post-content">
+            <%= @post.text %>
+          </p>
+        </div>
+
+
+        <ul class="comment-list">
+          <% @post.comments.each do |comment| %>
+            <li class="comment">
+              <span class="comment-span">
+                <h5 class="commenter"><%= comment.user.name %></h5>
+                <p class="comment-content"><%= comment.text %></p>
+              </span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+ 
+
+    <div class="button">
+      <div class="wrapper">
+        <button>
+          See more Posts 
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>hh</footer>
+</body>

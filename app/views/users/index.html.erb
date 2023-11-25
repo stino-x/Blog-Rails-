@@ -1,2 +1,22 @@
-<h1>Here is a list of all posts for a user</h1>
+<%= stylesheet_link_tag 'application', 'userindex', 'data-turbo-track': 'reload' %>
+<body>
+<main class="flex">
+  <header></header>
+  <% @users.each do |user| %>
+  <div class="profile">
+      <span class="profile-photo">
+        <img src="https://user-images.githubusercontent.com/37116322/222183427-3450696b-429a-4e9a-9e19-48bbe4b48edf.png" alt="profile" class="user-pic">
+      </span>
+      <span class="user">
+        <h2 class="name"><%= user.name %></h2>
+        <span class="second-half">
+          <h5>#Number of posts:</h5>
+          <h6 class="numberofposts"><%= user.posts_counter %></h6>
+        </span>
+      </span>
+  </div>
+  <% end %>
+  <footer></footer>
+</main>
+</body>
 
