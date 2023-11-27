@@ -166,6 +166,14 @@ header {
   top: 4%;
 }
 
+.like-button {
+  cursor: pointer;
+  background-color: #b87333;
+  color: black;
+  border: none;
+  border-radius: 8px;
+}
+
 .commentsandlikes {
   display: flex;
   text-align: right;

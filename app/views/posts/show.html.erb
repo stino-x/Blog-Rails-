@@ -17,6 +17,15 @@
           <p class="post-content">
             <%= @post.text %>
           </p>
+        <% if current_user.likes?(@post) %>
+          <%= form_with(model: @like, url: user_post_like_path(@user, @post, @like), method: :delete, local: true) do |f| %>
+            <%= f.submit 'Unlike', class: 'like-button' %>
+          <% end %>
+        <% else %>
+          <%= form_with(model: @like, url: user_post_likes_path(@user, @post), method: :post, local: true) do |f| %>
+            <%= f.submit 'Like', class: 'like-button' %>
+          <% end %>
+        <% end %>
         </div>
 
 

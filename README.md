@@ -27,7 +27,7 @@
 # 🏖️🌍 blog-app <a name="about-project"></a>
 
 Welcome to **blog-app**
-
+SimpleBlog is a user-friendly and intuitive blogging application designed to streamline the process of creating and managing blog content. Whether you're a seasoned blogger or just starting your journey into the world of online writing, SimpleBlog provides a clean and straightforward platform to share your thoughts, ideas, and stories.
 
 ## ERD diagram
 #### The structure of this project application is based on the ERD diagram below:
@@ -119,15 +119,6 @@ Open your browser and navigate to:
 
 👤 **Iheagwara Augustine**
 - [GitHub](https://github.com/stino-x)
-
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **User Interface**
-- [ ] **Forms**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
