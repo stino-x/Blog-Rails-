@@ -4,7 +4,6 @@ class LikesController < ApplicationController
     @like = Like.new(user: current_user, post: @post)
 
     if @like.save
-      @post.increment!(:likes_counter)
       flash[:success] = 'Post liked!'
     else
       flash[:error] = 'Like creation failed'
@@ -14,15 +13,16 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    puts 'Destroy action called!'
     @post = Post.find(params[:post_id])
     @like = current_user.likes.find_by(post: @post)
+
     if @like.destroy
-      @post.decrement!(:likes_counter)
-      flash[:success] = 'Post unliked!!'
+      flash[:success] = 'Post unliked!'
     else
       flash[:error] = 'Unlike failed'
     end
 
-    # redirect_to user_post_path(@post.author, @post)
+    redirect_to user_post_path(@post.author, @post)
   end
 end
