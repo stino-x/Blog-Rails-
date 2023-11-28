@@ -26,6 +26,7 @@
             <%= f.submit 'Like', class: 'like-button' %>
           <% end %>
         <% end %>
+        <%= link_to 'Add Comment', "/users/#{@post.author.id}/posts/#{@post.id}/comments/new", class: 'btn-primary' %>
         </div>
 
 

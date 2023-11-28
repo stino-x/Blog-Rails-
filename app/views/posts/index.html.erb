@@ -26,6 +26,7 @@
           <div class="commentsandlikes">
             <h5 class="sign">Comments:</h5>
             <span class="numberofcomments"><%= post.comments_counter %></span>
+            <%= link_to 'View', "/users/#{@user.id}/posts/#{post.id}", class: 'post-link' %>
             <h5>Likes:</h5>
             <span class="numberoflikes"><%= post.likes_counter %></span>
           </div>

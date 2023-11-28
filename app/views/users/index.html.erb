@@ -12,6 +12,7 @@
         <span class="second-half">
           <h5>#Number of posts:</h5>
           <h6 class="numberofposts"><%= user.posts_counter %></h6>
+                <%= link_to 'View', user_path(user), class: 'post-link' %>
         </span>
       </span>
   </div>
