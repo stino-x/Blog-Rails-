@@ -120,6 +120,9 @@ Open your browser and navigate to:
 👤 **Iheagwara Augustine**
 - [GitHub](https://github.com/stino-x)
 
+- [🔭 Future Features](#future-features)
+- improved styling and extra functionality and relationships between models
+
 <!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
