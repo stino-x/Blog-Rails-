@@ -24,7 +24,6 @@ RSpec.describe 'User post index page', type: :feature do
     expect(page).to have_css('h5', text: '#Number of posts:')
     expect(page).to have_css('h6.numberofposts', text: user.posts_counter.to_s)
   end
-
   it "displays a post's title and some of the post's body" do
     posts.each do |post|
       expect(page).to have_content(post.title)
