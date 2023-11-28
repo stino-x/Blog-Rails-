@@ -8,7 +8,6 @@ RSpec.describe 'User post index page', type: :feature do
     end
   end
 
-
   before do
     visit user_posts_path(user)
   end
@@ -40,8 +39,6 @@ RSpec.describe 'User post index page', type: :feature do
       expect(page).to have_css('span.numberofcomments', text: post.comments_counter.to_s)
     end
   end
-
-
 
   it 'displays how many likes a post has' do
     posts.each do |post|
