@@ -19,13 +19,14 @@
     <% @posts.each do |post| %>
       <div class="post">
         <div class="post-body">
-          <h2 class="post-title"><%= post.title %></h2>
+          <h2 class="post-title">Post #<%= post.id %> by <%= post.author.name %></h2>
           <p class="post-content">
             <%= post.text %>
           </p>
           <div class="commentsandlikes">
             <h5 class="sign">Comments:</h5>
             <span class="numberofcomments"><%= post.comments_counter %></span>
+            <%= link_to 'View', "/users/#{@user.id}/posts/#{post.id}", class: 'post-link' %>
             <h5>Likes:</h5>
             <span class="numberoflikes"><%= post.likes_counter %></span>
           </div>
@@ -43,6 +44,8 @@
         </ul>
       </div>
     <% end %>
+
+    <%= will_paginate @posts %>
 
     <div class="button">
       <div class="wrapper">

@@ -349,3 +349,31 @@ button:hover {
 button:hover span {
   animation-play-state: paused;
 }
+
+/* pagnation styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  height: 10%;
+  color: red;
+}
+
+.next-link {
+  /* Add your styling here */
+  color: #007bff; /* Example color */
+  font-weight: bold;
+
+  /* Add more styles as needed */
+}
+
+.prev-link {
+  /* Add your styling here */
+  color: #007bff; /* Example color */
+  font-weight: bold;
+
+  /* Add more styles as needed */
+}

@@ -36,6 +36,7 @@
             <span class="numberofcomments"><%= post.comments_counter %></span>
             <h5>Likes:</h5>
             <span class="numberoflikes"><%= post.likes_counter %></span>
+            <%= link_to 'Posts', "/users/#{@user.id}/posts", class: 'post-link' %>
           </div>
         </div>
       </div>
