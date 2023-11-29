@@ -71,3 +71,5 @@ gem 'rails-controller-testing'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'will_paginate'
+
+gem 'devise', '~> 4.9'
