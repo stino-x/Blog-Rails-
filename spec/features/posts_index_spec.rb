@@ -49,4 +49,33 @@ RSpec.describe 'User post index page', type: :feature do
     click_link 'View', href: user_post_path(user, posts.first)
     expect(page).to have_content('Add Comment')
   end
+
+  it 'displays paginated posts with 10 posts per page' do
+    # Create more than 10 posts
+    (1..15).map do |i|
+      user.posts.create(title: "Post #{i}", text: "Post #{i} content")
+    end
+
+    # Visit the user's posts page
+    visit user_posts_path(user)
+
+    # Initial page should have 10 posts
+    expect(page).to have_selector('.post', count: 10)
+
+    # Check that the total number of posts is greater than what's displayed on the page
+    total_posts = Post.count
+    expect(total_posts).to be > 10
+
+    # Capture the content of the first page posts
+    first_page_posts_content = page.all('.post').map(&:text)
+
+    # Click on 'Next' to go to the second page
+    click_on('Next')
+
+    # Capture the content of the second page posts
+    second_page_posts_content = page.all('.post').map(&:text)
+
+    # Ensure that the posts on the second page are different from the first page
+    expect(second_page_posts_content).not_to eq(first_page_posts_content)
+  end
 end

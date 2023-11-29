@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   before_action :set_user, only: %i[index new create]
   before_action :set_post, only: [:show]
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = Post.includes(:comments).paginate(page: params[:page], per_page: 10)
   end
 
   def show
