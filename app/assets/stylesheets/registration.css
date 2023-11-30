@@ -22,11 +22,16 @@ header {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  min-height: 100vh;
+  min-height: 90vh;
 
   /* margin-bottom: 5%; */
   flex: 1;
   background-color: bisque;
+}
+
+.h2 {
+  margin: auto;
+  width: 10%;
 }
 
 form {
@@ -50,6 +55,17 @@ form {
   height: 100%;
   background-color: bisque;
   border-radius: 15px;
+}
+
+.checkbox {
+  flex-direction: row;
+  margin-bottom: 3%;
+  height: 50%;
+}
+
+input[type="checkbox"] {
+  margin-left: 1%;
+  align-self: self-start;
 }
 
 footer {
