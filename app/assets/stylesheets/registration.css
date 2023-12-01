@@ -30,7 +30,7 @@ header {
 }
 
 .h2 {
-  margin: auto;
+  margin: 2% auto;
   width: 10%;
 }
 
@@ -39,17 +39,18 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 5% auto;
   width: 80%;
-  height: 100%;
+  height: 80%;
   background-color: bisque;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  flex: 1;
+
+  /* justify-content: space-between; */
   margin: 1% auto;
   width: 50%;
   height: 100%;
@@ -57,15 +58,27 @@ form {
   border-radius: 15px;
 }
 
+.actions {
+  width: 50%;
+}
+
 .checkbox {
   flex-direction: row;
-  margin-bottom: 3%;
-  height: 50%;
+
+  /* margin-bottom: 3%; */
+  height: 5%;
+  flex: 1;
 }
 
 input[type="checkbox"] {
   margin-left: 1%;
+
+  /* margin-top: 1%; */
   align-self: self-start;
+}
+
+input[type="submit"] {
+  width: 100%;
 }
 
 footer {
