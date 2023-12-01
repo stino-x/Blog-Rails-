@@ -29,7 +29,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
   private
 
   def set_user_and_post
