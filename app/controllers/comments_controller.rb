@@ -16,6 +16,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+
+    if @comment
+      @comment.destroy
+      flash[:success] = 'Comment successfully deleted'
+      redirect_to user_post_path(@comment.user, @comment.post)
+    else
+      flash[:error] = 'Comment not found'
+      redirect_to some_path # Redirect to an appropriate path if the comment is not found
+    end
+  end
+
+
   private
 
   def set_user_and_post

@@ -17,6 +17,12 @@
           <p class="post-content">
             <%= @post.text %>
           </p>
+            <% if can? :destroy, @post %>
+            <%= button_to 'Delete', user_post_path(@post.author, @post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            <% end %>
+
+
+
         <% if current_user.likes?(@post) %>
           <%= form_with(model: @like, url: user_post_like_path(@user, @post, @like), method: :delete, local: true) do |f| %>
             <%= f.submit 'Unlike', class: 'like-button' %>
@@ -37,6 +43,9 @@
                 <h5 class="commenter"><%= comment.user.name %></h5>
                 <p class="comment-content"><%= comment.text %></p>
               </span>
+              <% if can? :destroy, comment %>
+               <%= button_to 'Delete', user_post_comment_path(@user, @post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+               <% end %>
             </li>
           <% end %>
         </ul>

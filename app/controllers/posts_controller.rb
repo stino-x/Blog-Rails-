@@ -1,20 +1,25 @@
 class PostsController < ApplicationController
   before_action :set_user, only: %i[index new create]
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: %i[show destroy]
+
   def index
     @posts = Post.includes(:comments).paginate(page: params[:page], per_page: 10)
   end
 
   def show
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
     @like = current_user.likes.find_by(post: @post)
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to :back
+    if @post
+      @post.destroy
+      flash[:success] = 'Post successfully deleted'
+    else
+      flash[:error] = 'Post not found'
+    end
+
+    redirect_to user_posts_path(author_id: current_user.id)
   end
 
   def new
