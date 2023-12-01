@@ -1,13 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  helper_method :current_user, :likes?
 
-  before_action :update_allowed_parameters, if: :devise_controller?
+  private
 
-  protected
-
-  def update_allowed_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
+  def likes?(post)
+    current_user.likes.where(post:).exists?
   end
+
+  def current_user
+    @current_user ||= User.first
+  end
+
+  helper_method :current_user
 end
