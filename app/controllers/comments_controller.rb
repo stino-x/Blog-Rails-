@@ -14,12 +14,20 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.build(comment_params)
-    if @comment.save
-      flash[:success] = 'Comment Added Successfully'
-      redirect_to user_post_path(@user, @post)
-    else
-      flash.now[:error] = 'Failed To Create Comment'
-      render :new
+    respond_to do |format|
+      if @comment.save
+        format.html do
+          flash[:success] = 'Comment Added Successfully'
+          redirect_to user_post_path(@user, @post)
+        end
+        format.json { render json: @comment, status: :created }
+      else
+        format.html do
+          flash.now[:error] = 'Failed To Create Comment'
+          render :new
+        end
+        format.json { render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity }
+      end
     end
   end
 

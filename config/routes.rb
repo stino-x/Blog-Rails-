@@ -14,7 +14,7 @@ Rails.application.routes.draw do
           get :index_api, as: 'index', defaults: { format: :json }
         end
       end
-      resource :likes, only: [:create, :destroy]
+      resources :likes, only: [:create, :destroy]
     end
     collection do
       get :index_api, as: 'index', defaults: { format: :json }

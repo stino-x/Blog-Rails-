@@ -10,7 +10,10 @@ class PostsController < ApplicationController
       @posts = Post.includes(:comments).paginate(page: params[:page], per_page: 10)
     end
 
-    render json: @posts
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @posts }
+    end
   end
 
   def show
