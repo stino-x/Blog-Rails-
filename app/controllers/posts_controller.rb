@@ -3,7 +3,17 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show destroy]
 
   def index
-    @posts = Post.includes(:comments).paginate(page: params[:page], per_page: 10)
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 10)
+    else
+      @posts = Post.includes(:comments).paginate(page: params[:page], per_page: 10)
+    end
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @posts }
+    end
   end
 
   def show
@@ -37,6 +47,10 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Post creation failed'
       render :new
     end
+  end
+
+  def set_default_response_format
+    request.format = :json if request.format.html?
   end
 
   private
